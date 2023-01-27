@@ -1,3 +1,4 @@
 # MS-DevOps-C4
 
-Super @OleShangiti
+Class Team Project for week 5.
+Submitted by @OleShangiti
