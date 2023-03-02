@@ -1,9 +1,8 @@
 steps:
   - id: "Deploy"
-    name: bash
+    name: gcr.io/cloud-builders/gcloud
+    entrypoint: "bash"
     args:
-        [
-         "curl",
-         "-X POST",
-         "https://api.render.com/deploy/srv-cfqrsipgp3joa8gevua0?key=2TNnrkN-rhA&ref=${COMMIT_SHA}"
-        ]
+      - "-c"
+      - |
+          curl -X POST https://api.render.com/deploy/srv-cfqrsipgp3joa8gevua0?key=2TNnrkN-rhA&ref=${COMMIT_SHA}
