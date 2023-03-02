@@ -1,8 +1,9 @@
 steps:
-  - id: "Test trigger"
+  - id: "Deploy"
     name: bash
     args:
         [
-         "echo",
-         "hello world"
+         "curl",
+         "-X POST",
+         "https://api.render.com/deploy/srv-cfqrsipgp3joa8gevua0?key=2TNnrkN-rhA&ref=${COMMIT_SHA}"
         ]
