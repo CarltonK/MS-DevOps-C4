@@ -1,0 +1,8 @@
+steps:
+  - id: "Test trigger"
+    name: node:16.19.0
+    entrypoint: sh
+    args:
+        [
+         "echo hello world"
+        ]
