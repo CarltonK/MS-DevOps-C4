@@ -7,9 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-    networks:
-      test-network:
-        ipv4_address: 172.21.0.3
     volumes:
       - .:/app
     depends_on:
@@ -23,18 +20,9 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: group1
       MONGO_INITDB_ROOT_PASSWORD: group1
-    networks:
-      test-network:
-        ipv4_address: 172.21.0.2
 
     volumes:
       - test-vol:/data/db
 
 volumes:
   test-vol:
-
-networks:
-  test-network:
-    ipam:
-      config:
-        - subnet: 172.21.0.0/16
