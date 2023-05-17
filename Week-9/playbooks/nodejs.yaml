@@ -2,6 +2,7 @@
   hosts: all
   tasks:
     - name: Install nodejs package
+      become_user: root
       ansible.builtin.apt:
         name:
           - nodejs
