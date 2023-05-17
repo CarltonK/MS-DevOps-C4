@@ -1,0 +1,16 @@
+all:
+  hosts:
+    vm01:
+      ansible_host: ansible-client-one
+    vm02:
+      ansible_host: ansible-client-two
+
+accounting:
+  hosts:
+    vm01:
+      ansible_host: ansible-client-one
+
+admin:
+  hosts:
+    vm01:
+      ansible_host: ansible-client-two
