@@ -5,8 +5,6 @@
       shell: curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
       args:
         executable: /bin/bash
-      apt:
-        update_cache: yes
     - name: Install nodejs package
       become: true
       ansible.builtin.apt:
@@ -14,3 +12,4 @@
           - nodejs
           - npm
         state: present
+        update_cache: yes
