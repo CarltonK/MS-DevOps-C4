@@ -10,3 +10,13 @@
       shell: docker pull hawksdev/g1-yolo-backend:1.0.1
       args:
         executable: /bin/bash
+
+    - name: Start client container
+      shell: docker run -i hawksdev/g1-yolo-client:1.0.1
+      args:
+        executable: /bin/bash
+
+    - name: Start backend container
+      shell: docker run hawksdev/g1-yolo-backend:1.0.1
+      args:
+        executable: /bin/bash
