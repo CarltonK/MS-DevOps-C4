@@ -1,22 +1,33 @@
 - hosts: all
   become: true
+  vars:
+    client_image: hawksdev/g1-yolo-client:1.0.1
+    backend_image: hawksdev/g1-yolo-backend:1.0.1
+    app_directory: /opt/yolo
   tasks:
     - name: Pull client image
-      shell: docker pull hawksdev/g1-yolo-client:1.0.1
+      shell: docker pull {{ client_image }}
       args:
         executable: /bin/bash
 
     - name: Pull backend image
-      shell: docker pull hawksdev/g1-yolo-backend:1.0.1
+      shell: docker pull {{ backend_image }}
       args:
         executable: /bin/bash
 
-    - name: Start client container
-      shell: docker run -i hawksdev/g1-yolo-client:1.0.1
-      args:
-        executable: /bin/bash
+    - name: Create app directory
+      ansible.builtin.file:
+        path: "{{ app_directory }}"
+        state: directory
+        mode: '0755'
 
-    - name: Start backend container
-      shell: docker run hawksdev/g1-yolo-backend:1.0.1
+    - name: Copy docker-compose file
+      template:
+        src: ./../docker-compose.yaml
+        dest: "{{ app_directory }}/docker-compose.yaml"
+
+    - name: Start the app
+      shell: docker-compose -f docker-compose.yaml up
       args:
         executable: /bin/bash
+        chdir: "{{ app_directory }}"
