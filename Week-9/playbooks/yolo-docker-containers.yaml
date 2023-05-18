@@ -27,7 +27,7 @@
         dest: "{{ app_directory }}/docker-compose.yaml"
 
     - name: Start the app
-      shell: docker-compose -f docker-compose.yaml up
+      shell: docker-compose -f docker-compose.yaml up -d
       args:
         executable: /bin/bash
         chdir: "{{ app_directory }}"
