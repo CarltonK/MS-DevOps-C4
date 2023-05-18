@@ -1,12 +1,12 @@
 - hosts: all
   become: true
   tasks:
-    - name: Pull client container
+    - name: Pull client image
       shell: docker pull hawksdev/g1-yolo-client:1.0.1
       args:
         executable: /bin/bash
 
-    - name: Pull backend container
+    - name: Pull backend image
       shell: docker pull hawksdev/g1-yolo-backend:1.0.1
       args:
         executable: /bin/bash
