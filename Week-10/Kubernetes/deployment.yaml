@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsg1-k8s-deployment
+spec:
+  selector:
+    matchLabels:
+      app: devopsg1-k8s-deployment
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: devopsg1-k8s-deployment
+    spec:
+      containers:
+        - name: devopsg1-k8s-deployment
+          image: hawksdev/devopsg1-k8s:1.0.0
+          ports:
+            - containerPort: 3000
