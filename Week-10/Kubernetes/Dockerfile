@@ -8,4 +8,6 @@ RUN npm i
 
 COPY . /app/
 
+ENV NODE_ENV=docker
+
 CMD [ "npm", "start" ]
