@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: devopsg1-k8s-deployment
-          image: hawksdev/devopsg1-k8s:1.0.2
+          image: gcr.io/<PROJECT_ID>/devopsg1:1.0.0
           ports:
             - containerPort: 3000
           env:
